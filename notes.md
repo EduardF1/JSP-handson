@@ -116,3 +116,16 @@ to different urls. When the users should be sent to another application, they ar
 # Full-fledged web applications
 - MVC as a DP.
 - The model is the transaction entity, the view is represented by the `*.jsp` files and the controllers are based on the servlets.
+- The model can be seen as POJO, however it is a Bean resource. The main distinction is that the Bean is serializable.
+
+# Java Bean
+- Has to implement the Serializable interface.
+- Has a no-args constructor.
+- Has private class members with public accessors (getters and setters).
+
+# Initialization parameters
+- There are two types:
+<ol type="a">
+  <li>Context Parameters (available to any servlet, can be though of as a global variable)</li>
+  <li>Servlet Parameters (specific to a servlet)</li>
+</ol>
