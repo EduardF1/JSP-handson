@@ -7,7 +7,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "PersonServlet", value = "/PersonServlet")
+@WebServlet(name = "PersonServlet", urlPatterns = "/person")
 public class PersonServlet extends HttpServlet {
     private final RequestHandler requestHandler = RequestHandler.getInstance();
 

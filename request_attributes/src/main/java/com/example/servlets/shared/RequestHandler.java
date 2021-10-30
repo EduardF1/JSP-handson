@@ -1,5 +1,6 @@
 package com.example.servlets.shared;
 
+import com.example.model.Person;
 import com.example.servlets.Attributes;
 
 import javax.servlet.ServletContext;
@@ -37,7 +38,7 @@ public class RequestHandler {
      */
     public void redirect(ServletContext servletContext, HttpServletRequest request, HttpServletResponse response) {
         try {
-            servletContext.getRequestDispatcher(REQUEST_DESTINATIONS[1]).forward(request, response);
+            servletContext.getRequestDispatcher(REQUEST_DESTINATIONS[0]).forward(request, response);
         } catch (ServletException | IOException exception) {
             err.printf("An exception has occurred %s", exception);
         }
@@ -89,10 +90,13 @@ public class RequestHandler {
     public void validateRequest(HttpServletRequest request, StringBuilder errorMessage, String[] requestParams) {
         if (isError(errorMessage)) {
             request.setAttribute(Attributes.ERROR, errorMessage.toString());
+            request.setAttribute("person", new Person());
         } else {
-            request.setAttribute(Attributes.FIRST_NAME, requestParams[0]);
-            request.setAttribute(Attributes.LAST_NAME, requestParams[1]);
-            request.setAttribute(Attributes.AGE, requestParams[2]);
+            request.setAttribute("person", new Person(
+                    requestParams[0],
+                    requestParams[1],
+                    Integer.parseInt(requestParams[2])
+            ));
         }
     }
 

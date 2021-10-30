@@ -9,7 +9,9 @@ public class Person implements Serializable {
     private int age;
 
     public Person() {
-        // Required empty constructor
+        this.firstName = "Karl";
+        this.lastName = "Kruse";
+        this.age = 34;
     }
 
     public Person(String firstName, String lastName, int age) {
