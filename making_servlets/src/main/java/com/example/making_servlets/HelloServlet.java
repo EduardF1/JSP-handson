@@ -11,10 +11,10 @@ public class HelloServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("the GET request has been made to /hello");
 
-        response.setContentType("text/plain");
+        response.setContentType("text/html");
 
-        response.getWriter().println("Here is a line");
-        response.getWriter().println("Here is another line.");
+        response.getWriter().println("<h1>Hello!</h1>");
+        response.getWriter().println("<p>Welcome to my website</p>");
     }
 
     @Override
